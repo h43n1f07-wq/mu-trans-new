@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mu Trans — Layanan Travel &amp; Logistik</title>
+  <meta name="description" content="Mu Trans — layanan travel terpercaya untuk penumpang & pengiriman barang. Booking cepat, armada modern, tarif kompetitif." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Small visual tweaks */
+    .hero-gradient{background: linear-gradient(90deg, rgba(14,165,233,0.95), rgba(59,130,246,0.95));}
+    .glass{background:rgba(255,255,255,0.9);backdrop-filter: blur(6px)}
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-gray-50">
+  <!-- NAV -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">MT</div>
+        <div>
+          <h1 class="text-lg font-semibold">Mu Trans</h1>
+          <p class="text-xs text-gray-500">Travel • Cargo • Charter</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-blue-600">Layanan</a>
+        <a href="#fleet" class="hover:text-blue-600">Armada</a>
+        <a href="#about" class="hover:text-blue-600">Tentang</a>
+        <a href="#contact" class="hover:text-blue-600">Kontak</a>
+        <a href="#booking" class="bg-blue-600 text-white px-4 py-2 rounded-md shadow">Booking</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md hover:bg-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
+      <a href="#services" class="block py-2">Layanan</a>
+      <a href="#fleet" class="block py-2">Armada</a>
+      <a href="#about" class="block py-2">Tentang</a>
+      <a href="#contact" class="block py-2">Kontak</a>
+      <a href="#booking" class="block py-2 font-medium">Booking</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-gradient text-white">
+    <div class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-4xl font-extrabold leading-tight">Mu Trans — Travel &amp; Logistic Terpercaya</h2>
+        <p class="mt-4 text-lg text-blue-100">Solusi transportasi penumpang, cargo, dan charter untuk kebutuhan bisnis dan pribadi. Armada modern, sopir berpengalaman, dan harga transparan.</p>
+        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+          <li class="flex items-center gap-3"><span class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</span> Booking online cepat</li>
+          <li class="flex items-center gap-3"><span class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</span> Armada terawat & ber-AC</li>
+          <li class="flex items-center gap-3"><span class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</span> Layanan antar jemput</li>
+          <li class="flex items-center gap-3"><span class="bg-white text-blue-600 rounded-full w-8 h-8 flex items-center justify-center font-bold">✓</span> Pelacakan pengiriman (tracking)</li>
+        </ul>
+        <div class="mt-8 flex gap-4">
+          <a href="#booking" class="bg-white text-blue-600 px-5 py-3 rounded-md font-semibold shadow">Pesan Sekarang</a>
+          <a href="#contact" class="border border-white px-5 py-3 rounded-md">Hubungi Kami</a>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg glass">
+        <h3 class="text-gray-800 font-semibold">Formulir Cepat Booking</h3>
+        <form id="bookingForm" class="mt-4 grid grid-cols-1 gap-3">
+          <div>
+            <label class="text-xs text-gray-600">Nama</label>
+            <input required type="text" id="name" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" placeholder="Nama lengkap" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-600">Dari</label>
+            <input required type="text" id="from" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" placeholder="Kota asal" />
+          </div>
+          <div>
+            <label class="text-xs text-gray-600">Tujuan</label>
+            <input required type="text" id="to" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" placeholder="Kota tujuan" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-xs text-gray-600">Tanggal</label>
+              <input required type="date" id="date" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" />
+            </div>
+            <div>
+              <label class="text-xs text-gray-600">Penumpang / Muatan</label>
+              <input required type="number" id="qty" min="1" value="1" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" />
+            </div>
+          </div>
+          <div>
+            <label class="text-xs text-gray-600">Tipe Layanan</label>
+            <select id="serviceType" class="mt-1 w-full border border-gray-200 rounded px-3 py-2">
+              <option value="passenger">Travel Penumpang</option>
+              <option value="cargo">Pengiriman Barang (Cargo)</option>
+              <option value="charter">Sewa Charter</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-gray-600">Kontak (HP/WA)</label>
+            <input required type="tel" id="phone" class="mt-1 w-full border border-gray-200 rounded px-3 py-2" placeholder="08xx..." />
+          </div>
+          <button type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-md font-medium">Kirim Permintaan</button>
+          <p id="bookingMsg" class="text-sm text-green-600 hidden">Permintaan Anda telah dikirim. Kami akan menghubungi Anda segera.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-7xl mx-auto px-6 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="font-semibold">Travel Penumpang</h4>
+        <p class="text-sm text-gray-600 mt-2">Rute reguler antar-kota, antar-provinsi, layanan antar jemput bandara, dengan jadwal fleksibel.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="font-semibold">Cargo &amp; Kurir</h4>
+        <p class="text-sm text-gray-600 mt-2">Pengiriman barang door-to-door; tracking online; asuransi kargo opsional untuk muatan bernilai tinggi.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="font-semibold">Sewa Charter</h4>
+        <p class="text-sm text-gray-600 mt-2">Sewa bus/elf/truk untuk kegiatan perusahaan, wisata, acara keluarga, atau distribusi besar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section id="fleet" class="bg-white py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <h3 class="text-2xl font-semibold">Armada Kami</h3>
+        <p class="text-sm text-gray-500">Armada terawat, asuransi, & sopir berpengalaman.</p>
+      </div>
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="p-4 border rounded-lg">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Bus" class="w-full h-40 object-cover rounded" />
+          <h4 class="mt-3 font-medium">Bus Eksekutif</h4>
+          <p class="text-sm text-gray-500">Kapasitas 30-45 penumpang, AC, reclining seat.</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <img src="https://images.unsplash.com/photo-1585727897616-6b6e3f3b9e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Van" class="w-full h-40 object-cover rounded" />
+          <h4 class="mt-3 font-medium">Elf / Van</h4>
+          <p class="text-sm text-gray-500">Cocok untuk rombongan kecil atau pengiriman kilat.</p>
+        </div>
+        <div class="p-4 border rounded-lg">
+          <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Truck" class="w-full h-40 object-cover rounded" />
+          <h4 class="mt-3 font-medium">Truk &amp; Kontainer</h4>
+          <p class="text-sm text-gray-500">Layanan kargo untuk rute jarak jauh dan pengiriman besar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-7xl mx-auto px-6 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h3 class="text-2xl font-semibold">Tentang Mu Trans</h3>
+        <p class="mt-4 text-gray-600">Mu Trans berdiri untuk memberikan solusi transportasi yang andal dan terjangkau. Kami mengutamakan keselamatan, ketepatan waktu, dan layanan ramah pelanggan. Visi kami adalah menghubungkan komunitas dengan cara yang efisien dan berkelanjutan.</p>
+        <ul class="mt-4 text-sm text-gray-600 space-y-2">
+          <li>• Standar keselamatan & pemeriksaan rutin armada</li>
+          <li>• Sopir terlatih dan berlisensi</li>
+          <li>• Sistem booking dan pelacakan modern</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Tentang Mu Trans" class="w-full rounded-lg shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="font-semibold">Hubungi Kami</h4>
+        <p class="text-sm text-gray-600 mt-2">Customer service kami siap membantu 24/7.</p>
+        <div class="mt-4 text-sm text-gray-700 space-y-2">
+          <p><strong>Tel:</strong> 021-xxxx-xxxx</p>
+          <p><strong>WA:</strong> 08xx-xxxx-xxxx</p>
+          <p><strong>Email:</strong> info@mutrans.co.id</p>
+          <p><strong>Alamat:</strong> Jl. Contoh No.1, Jakarta</p>
+        </div>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow">
+        <h4 class="font-semibold">Form Kontak</h4>
+        <form id="contactForm" class="mt-3 grid grid-cols-1 gap-3">
+          <input type="text" id="cname" placeholder="Nama" class="w-full border border-gray-200 rounded px-3 py-2" required />
+          <input type="email" id="cemail" placeholder="Email" class="w-full border border-gray-200 rounded px-3 py-2" required />
+          <textarea id="cmsg" placeholder="Pesan Anda" rows="4" class="w-full border border-gray-200 rounded px-3 py-2" required></textarea>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md">Kirim</button>
+          <p id="contactMsg" class="text-sm text-green-600 hidden">Pesan terkirim. Kami akan menghubungi Anda.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white py-6">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-500">© <span id="year"></span> Mu Trans. Semua hak cipta.</p>
+      <div class="flex items-center gap-4 text-sm text-gray-600">
+        <a href="#">Syarat</a>
+        <a href="#">Privasi</a>
+        <a href="#">Bantuan</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // mobile menu
+    document.getElementById('menuBtn').addEventListener('click', function(){
+      var m = document.getElementById('mobileMenu');
+      if(m.classList.contains('hidden')) m.classList.remove('hidden'); else m.classList.add('hidden');
+    });
+
+    // booking form handler (demo)
+    document.getElementById('bookingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // simple validation
+      var name = document.getElementById('name').value.trim();
+      if(!name){alert('Masukkan nama'); return}
+      // show message
+      document.getElementById('bookingMsg').classList.remove('hidden');
+      // reset form after 1.2s
+      setTimeout(function(){
+        document.getElementById('bookingForm').reset();
+      },1200);
+    });
+
+    // contact form
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('contactMsg').classList.remove('hidden');
+      setTimeout(function(){document.getElementById('contactForm').reset();},1200);
+    });
+  </script>
+</body>
+</html>
